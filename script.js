@@ -46,11 +46,14 @@ document.addEventListener("DOMContentLoaded",()=>{
   const contactForm=document.getElementById("contactForm");
   const formMessage=document.getElementById("formMessage");
   if(contactForm){
-    contactForm.addEventListener("submit",(e)=>{
-      e.preventDefault();
+    const nextField=contactForm.querySelector('input[name="_next"]');
+    if(nextField){
+      nextField.value=location.origin+location.pathname+"?sent=1";
+    }
+    if(new URLSearchParams(location.search).get("sent")==="1"){
       formMessage.classList.add("show");
-      contactForm.reset();
-    });
+      history.replaceState(null,"",location.pathname);
+    }
   }
 
 /* Site search */
