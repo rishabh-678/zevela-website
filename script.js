@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
   nav.querySelectorAll(".dropdown-toggle").forEach(toggle=>{
     toggle.addEventListener("click",(e)=>{
-      if(window.innerWidth<=760){
+      if(window.innerWidth<=1080){
         e.preventDefault();
         toggle.closest(".dropdown").classList.toggle("open");
       }
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
   nav.querySelectorAll("a").forEach(a=>{
     a.addEventListener("click",()=>{
-      if(a.classList.contains("dropdown-toggle")&&window.innerWidth<=760) return;
+      if(a.classList.contains("dropdown-toggle")&&window.innerWidth<=1080) return;
       nav.classList.remove("open");
       menu.setAttribute("aria-expanded","false");
     });
