@@ -24,8 +24,18 @@ document.addEventListener("DOMContentLoaded",()=>{
     menu.setAttribute("aria-expanded",String(open));
   });
 
+  nav.querySelectorAll(".dropdown-toggle").forEach(toggle=>{
+    toggle.addEventListener("click",(e)=>{
+      if(window.innerWidth<=760){
+        e.preventDefault();
+        toggle.closest(".dropdown").classList.toggle("open");
+      }
+    });
+  });
+
   nav.querySelectorAll("a").forEach(a=>{
     a.addEventListener("click",()=>{
+      if(a.classList.contains("dropdown-toggle")&&window.innerWidth<=760) return;
       nav.classList.remove("open");
       menu.setAttribute("aria-expanded","false");
     });
@@ -65,6 +75,14 @@ document.addEventListener("DOMContentLoaded",()=>{
     {t:"Events",u:"events.html",k:"events live in person launches shows experiences fashion presentations brand",type:"Page"},
     {t:"Studio",u:"studio.html",k:"studio shoots campaign e-commerce product portraits lookbooks video social content",type:"Page"},
     {t:"Contact",u:"contact.html",k:"contact email get in touch new delhi mumbai paris milan work together enquiry",type:"Page"},
+    {t:"Services",u:"services.html",k:"services website development photo video editing graphics design social media management seo ui ux design delhi ncr",type:"Page"},
+    {t:"Website Development",u:"website-development.html",k:"service website development build design responsive",type:"Service"},
+    {t:"Photo/Video Editing",u:"photo-video-editing.html",k:"service photo video editing retouching colour grading reels",type:"Service"},
+    {t:"Graphics Design",u:"graphics-design.html",k:"service graphics design logo brand identity print packaging",type:"Service"},
+    {t:"Social Media Management",u:"social-media-management.html",k:"service social media management instagram content calendar posts reels",type:"Service"},
+    {t:"SEO",u:"seo.html",k:"service seo search engine optimisation google ranking delhi ncr",type:"Service"},
+    {t:"UI/UX Design",u:"ui-ux-design.html",k:"service ui ux design interface wireframe prototype app website",type:"Service"},
+    {t:"Wedding Photography & Films",u:"wedding.html",k:"wedding photography film delhi ncr candid cinematic mehendi sangeet",type:"Wedding"},
     {t:"Editorial Shoots",u:"editorial-shoots.html",k:"studio service editorial fashion shoot concept casting styling",type:"Studio"},
     {t:"Campaign Days",u:"campaign-days.html",k:"studio service campaign launch production stills motion",type:"Studio"},
     {t:"E-commerce & Product Imagery",u:"ecommerce-product-imagery.html",k:"studio service ecommerce product flat lay ghost mannequin catalogue",type:"Studio"},
